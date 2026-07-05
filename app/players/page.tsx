@@ -1,4 +1,6 @@
 import SectionHeader from "@/components/SectionHeader";
+import DataStatusBadge from "@/components/DataStatusBadge";
+import DataDisclaimer from "@/components/DataDisclaimer";
 import { mockPlayers } from "@/data/mockPlayers";
 import { getTeam } from "@/lib/utils";
 
@@ -7,7 +9,11 @@ export default function PlayersPage() {
 
   return (
     <div className="space-y-6">
-      <SectionHeader title="Players" subtitle="Top performers across the tournament" />
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <SectionHeader title="Players" subtitle="Demo player statistics for MVP visualization." />
+        <DataStatusBadge />
+      </div>
+      <DataDisclaimer message="Player names and stats shown are fictional demo examples, not real athletes or verified statistics." />
       <div className="overflow-x-auto rounded-xl border border-border bg-surface">
         <table className="w-full min-w-[640px] text-left text-sm">
           <thead>

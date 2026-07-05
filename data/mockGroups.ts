@@ -1,5 +1,6 @@
 import { Group } from "@/types";
 
+// Fabricated demo standings for MVP visualization, not verified group results.
 export const mockGroups: Group[] = [
   {
     id: "A",

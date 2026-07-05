@@ -1,5 +1,7 @@
 import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
+import DataStatusBadge from "@/components/DataStatusBadge";
+import DataDisclaimer from "@/components/DataDisclaimer";
 import { mockMatches } from "@/data/mockMatches";
 import { getTeam, formatMatchDate } from "@/lib/utils";
 
@@ -12,10 +14,14 @@ const statusStyles: Record<string, string> = {
 export default function MatchesPage() {
   return (
     <div className="space-y-6">
-      <SectionHeader
-        title="Live Matches"
-        subtitle="All group stage fixtures and results"
-      />
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <SectionHeader
+          title="Live Matches"
+          subtitle="Demo match center for MVP visualization. Live data integration planned."
+        />
+        <DataStatusBadge />
+      </div>
+      <DataDisclaimer message="Preview how match tracking will work once live data is connected. All scores and match events below are fabricated demo examples." />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {mockMatches.map((match) => {
           const home = getTeam(match.homeTeamId);
@@ -33,7 +39,7 @@ export default function MatchesPage() {
                 <span
                   className={`rounded-full px-2 py-0.5 font-medium uppercase tracking-wide ${statusStyles[match.status]}`}
                 >
-                  {match.status === "live" ? `Live ${match.minute}'` : match.status}
+                  {match.status === "live" ? `Live (Demo) ${match.minute}'` : match.status}
                 </span>
               </div>
               <div className="space-y-2">

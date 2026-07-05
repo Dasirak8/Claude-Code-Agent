@@ -1,5 +1,6 @@
 import { BracketMatch } from "@/types";
 
+// Fabricated demo knockout bracket for MVP visualization, not an official draw.
 export const mockBracket: BracketMatch[] = [
   { id: "r32-1", round: "Round of 32", homeTeamId: "usa", awayTeamId: "jpn", homeScore: null, awayScore: null, winnerTeamId: null, slot: 1 },
   { id: "r32-2", round: "Round of 32", homeTeamId: "bra", awayTeamId: "ger", homeScore: 3, awayScore: 0, winnerTeamId: "bra", slot: 2 },

@@ -1,11 +1,17 @@
 import SectionHeader from "@/components/SectionHeader";
+import DataStatusBadge from "@/components/DataStatusBadge";
+import DataDisclaimer from "@/components/DataDisclaimer";
 import { mockGroups } from "@/data/mockGroups";
 import { getTeam } from "@/lib/utils";
 
 export default function GroupsPage() {
   return (
     <div className="space-y-6">
-      <SectionHeader title="Groups" subtitle="Standings for every group in the tournament" />
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <SectionHeader title="Groups" subtitle="Explore a demo version of group standings." />
+        <DataStatusBadge />
+      </div>
+      <DataDisclaimer message="Group standings shown here are fabricated demo values, not verified official results." />
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {mockGroups.map((group) => (
           <div key={group.id} className="rounded-xl border border-border bg-surface p-5">

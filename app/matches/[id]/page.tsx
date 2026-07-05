@@ -4,6 +4,8 @@ import { ArrowLeft, MapPin, Calendar } from "lucide-react";
 import { mockMatches } from "@/data/mockMatches";
 import { getTeam, formatMatchDate } from "@/lib/utils";
 import EmptyState from "@/components/EmptyState";
+import DataStatusBadge from "@/components/DataStatusBadge";
+import DataDisclaimer from "@/components/DataDisclaimer";
 
 export function generateStaticParams() {
   return mockMatches.map((match) => ({ id: match.id }));
@@ -26,13 +28,18 @@ export default async function MatchDetailPage({
 
   return (
     <div className="space-y-6">
-      <Link
-        href="/matches"
-        className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white"
-      >
-        <ArrowLeft size={16} />
-        Back to matches
-      </Link>
+      <div className="flex items-center justify-between">
+        <Link
+          href="/matches"
+          className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white"
+        >
+          <ArrowLeft size={16} />
+          Back to matches
+        </Link>
+        <DataStatusBadge />
+      </div>
+
+      <DataDisclaimer message="This match is a fabricated demo example for MVP visualization, not a real result." />
 
       <div className="rounded-xl border border-border bg-surface p-6">
         <div className="mb-6 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-500 sm:justify-between">
@@ -60,7 +67,7 @@ export default async function MatchDetailPage({
               {match.homeScore ?? "-"} : {match.awayScore ?? "-"}
             </p>
             {match.status === "live" && (
-              <p className="mt-2 text-xs font-medium text-accent-green">LIVE &middot; {match.minute}&apos;</p>
+              <p className="mt-2 text-xs font-medium text-accent-green">LIVE (Demo) &middot; {match.minute}&apos;</p>
             )}
             {match.status === "upcoming" && (
               <p className="mt-2 text-xs font-medium text-accent-blue">Upcoming</p>

@@ -1,65 +1,74 @@
-import { Activity, Goal, Shield, Trophy } from "lucide-react";
+import { Activity, Goal, Users, Database } from "lucide-react";
 import StatCard from "@/components/StatCard";
 import SectionHeader from "@/components/SectionHeader";
+import DataStatusBadge from "@/components/DataStatusBadge";
 import { mockMatches } from "@/data/mockMatches";
 import { mockTeams } from "@/data/mockTeams";
+import { mockPlayers } from "@/data/mockPlayers";
+import { dataLabel } from "@/data/tournamentMeta";
 import { getTeam, formatMatchDate } from "@/lib/utils";
 import Link from "next/link";
 
 export default function DashboardPage() {
-  const finishedMatches = mockMatches.filter((m) => m.status === "finished");
   const liveMatches = mockMatches.filter((m) => m.status === "live");
-  const totalGoals = finishedMatches.reduce(
-    (sum, m) => sum + (m.homeScore ?? 0) + (m.awayScore ?? 0),
-    0
-  );
-  const avgGoals = finishedMatches.length
-    ? (totalGoals / finishedMatches.length).toFixed(2)
-    : "0.00";
 
   const featuredMatches = [...liveMatches, ...mockMatches.filter((m) => m.status === "upcoming")].slice(0, 4);
 
   return (
     <div className="space-y-8">
+      <DataStatusBadge />
+
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
-          label="Matches Played"
-          value={finishedMatches.length}
+          label="Demo Matches"
+          value={mockMatches.length}
           icon={Activity}
-          trend={`${liveMatches.length} live now`}
-          trendDirection="up"
+          trend={`${liveMatches.length} demo live now`}
+          trendDirection="neutral"
           accent="green"
         />
         <StatCard
-          label="Goals Scored"
-          value={totalGoals}
-          icon={Goal}
-          trend={`${avgGoals} avg per match`}
+          label="Demo Teams"
+          value={mockTeams.length}
+          icon={Users}
+          trend="Illustrative squads"
           trendDirection="neutral"
           accent="blue"
         />
         <StatCard
-          label="Teams Competing"
-          value={mockTeams.length}
-          icon={Shield}
-          trend="Across 4 groups"
+          label="Demo Players"
+          value={mockPlayers.length}
+          icon={Goal}
+          trend="Fictional roster"
           trendDirection="neutral"
           accent="purple"
         />
         <StatCard
-          label="Days to Final"
-          value={38}
-          icon={Trophy}
-          trend="Bracket in progress"
+          label="Data Mode"
+          value={dataLabel}
+          icon={Database}
+          trend="Local mock dataset"
           trendDirection="neutral"
           accent="green"
         />
       </div>
 
+      <div className="flex items-start gap-3 rounded-xl border border-border bg-surface p-5">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-card text-accent-blue">
+          <Database size={18} />
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-white">Data source status</p>
+          <p className="mt-1 text-sm text-slate-400">
+            Current version uses local mock data. Future versions can connect to licensed football APIs.
+          </p>
+        </div>
+      </div>
+
       <div>
         <SectionHeader
           title="Live & Upcoming"
-          subtitle="Matches happening now and coming up next"
+          subtitle="Demo preview of match tracking for MVP visualization"
           action={
             <Link
               href="/matches"
@@ -84,7 +93,7 @@ export default function DashboardPage() {
                   {match.status === "live" ? (
                     <span className="flex items-center gap-1.5 font-medium text-accent-green">
                       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent-green" />
-                      LIVE {match.minute}&apos;
+                      LIVE (Demo) {match.minute}&apos;
                     </span>
                   ) : (
                     <span>{formatMatchDate(match.date, match.time)}</span>

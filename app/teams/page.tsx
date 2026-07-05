@@ -1,10 +1,14 @@
 import SectionHeader from "@/components/SectionHeader";
+import DataStatusBadge from "@/components/DataStatusBadge";
 import { mockTeams } from "@/data/mockTeams";
 
 export default function TeamsPage() {
   return (
     <div className="space-y-6">
-      <SectionHeader title="Teams" subtitle="All national teams competing in the tournament" />
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <SectionHeader title="Teams" subtitle="Demo roster of illustrative squads for MVP visualization." />
+        <DataStatusBadge />
+      </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {mockTeams.map((team) => (
           <div
@@ -24,7 +28,7 @@ export default function TeamsPage() {
               </div>
             </div>
             <div className="mt-4 flex items-center justify-between text-xs">
-              <span className="text-slate-500">World Ranking</span>
+              <span className="text-slate-500">Demo Ranking</span>
               <span className="font-semibold text-white">#{team.ranking}</span>
             </div>
             <div className="mt-2 flex items-center gap-1.5">

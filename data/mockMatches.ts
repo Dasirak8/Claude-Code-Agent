@@ -1,5 +1,7 @@
 import { Match } from "@/types";
 
+// Illustrative demo fixtures for MVP visualization. Scores, events, and the
+// in-progress match below are fabricated examples, not real results.
 export const mockMatches: Match[] = [
   {
     id: "m1",
@@ -15,9 +17,9 @@ export const mockMatches: Match[] = [
     venue: "MetLife Stadium",
     city: "New York/New Jersey",
     events: [
-      { minute: 23, type: "goal", team: "home", description: "Pulisic opens the scoring" },
-      { minute: 41, type: "goal", team: "away", description: "Equalizer for Mexico" },
-      { minute: 78, type: "goal", team: "home", description: "Late winner for USA" },
+      { minute: 23, type: "goal", team: "home", description: "Home side opens the scoring" },
+      { minute: 41, type: "goal", team: "away", description: "Away side levels it" },
+      { minute: 78, type: "goal", team: "home", description: "Late winner for the home side" },
     ],
   },
   {
@@ -30,13 +32,13 @@ export const mockMatches: Match[] = [
     minute: 63,
     stage: "Group Stage",
     group: "B",
-    date: "2026-07-05",
+    date: "2026-06-19",
     time: "15:00",
     venue: "AT&T Stadium",
     city: "Dallas",
     events: [
-      { minute: 12, type: "goal", team: "home", description: "Messi scores from the spot" },
-      { minute: 55, type: "goal", team: "away", description: "Mbappe equalizes" },
+      { minute: 12, type: "goal", team: "home", description: "Home side scores from the spot" },
+      { minute: 55, type: "goal", team: "away", description: "Away side equalizes" },
     ],
   },
   {
@@ -81,9 +83,9 @@ export const mockMatches: Match[] = [
     venue: "BC Place",
     city: "Vancouver",
     events: [
-      { minute: 8, type: "goal", team: "home", description: "Vinicius Jr. opens the scoring" },
-      { minute: 34, type: "goal", team: "home", description: "Second for Brazil" },
-      { minute: 71, type: "goal", team: "home", description: "Brazil seals it" },
+      { minute: 8, type: "goal", team: "home", description: "Home side opens the scoring" },
+      { minute: 34, type: "goal", team: "home", description: "Second goal for the home side" },
+      { minute: 71, type: "goal", team: "home", description: "Home side seals it" },
     ],
   },
   {
@@ -114,10 +116,10 @@ export const mockMatches: Match[] = [
     venue: "Levi's Stadium",
     city: "San Francisco",
     events: [
-      { minute: 19, type: "goal", team: "home", description: "Japan strikes first" },
-      { minute: 44, type: "goal", team: "away", description: "Canada levels it" },
-      { minute: 60, type: "goal", team: "home", description: "Japan retakes the lead" },
-      { minute: 88, type: "goal", team: "away", description: "Canada snatches a draw" },
+      { minute: 19, type: "goal", team: "home", description: "Home side strikes first" },
+      { minute: 44, type: "goal", team: "away", description: "Away side levels it" },
+      { minute: 60, type: "goal", team: "home", description: "Home side retakes the lead" },
+      { minute: 88, type: "goal", team: "away", description: "Away side snatches a draw" },
     ],
   },
   {

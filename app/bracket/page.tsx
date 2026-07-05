@@ -1,4 +1,6 @@
 import SectionHeader from "@/components/SectionHeader";
+import DataStatusBadge from "@/components/DataStatusBadge";
+import DataDisclaimer from "@/components/DataDisclaimer";
 import { mockBracket } from "@/data/mockBracket";
 import { getTeam } from "@/lib/utils";
 
@@ -7,7 +9,11 @@ const rounds = ["Round of 32", "Round of 16", "Quarterfinal", "Semifinal", "Fina
 export default function BracketPage() {
   return (
     <div className="space-y-6">
-      <SectionHeader title="Bracket" subtitle="Knockout stage draw and results" />
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <SectionHeader title="Bracket" subtitle="Demo knockout stage draw for MVP visualization." />
+        <DataStatusBadge />
+      </div>
+      <DataDisclaimer message="This bracket is a fabricated demo draw, not the official knockout stage." />
       <div className="overflow-x-auto pb-4">
         <div className="flex min-w-[900px] gap-6">
           {rounds.map((round) => {

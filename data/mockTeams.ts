@@ -1,5 +1,7 @@
 import { Team } from "@/types";
 
+// Demo roster of illustrative squads for MVP visualization. Group assignments
+// and rankings are fabricated demo values, not the verified official draw.
 export const mockTeams: Team[] = [
   { id: "usa", name: "United States", shortName: "USA", code: "USA", confederation: "CONCACAF", group: "A", flagColor: "#3b82f6", ranking: 11, form: ["W", "W", "D"] },
   { id: "mex", name: "Mexico", shortName: "Mexico", code: "MEX", confederation: "CONCACAF", group: "A", flagColor: "#22d3a5", ranking: 15, form: ["W", "D", "W"] },
